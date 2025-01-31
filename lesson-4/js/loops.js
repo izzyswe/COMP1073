@@ -55,25 +55,41 @@ let num = 50;
 for (let i = 1; i <= num; i ++) {
 	let sqRoot = Math.sqrt(i);
 	/* STEP 3a: Build an IF statement that checks whether the square root of the number is NOT an integer */
-	//if () {
+	if (Math.floor(sqRoot) !== sqRoot) {
 		/* STEP 3b: If the square root of the number is not an integer, we don't want to output it to the paragraph, so skip the rest of the instructions inside this loop and go back up to the FOR, using 'continue' */
-
-	//}
+    continue;
+	};
 	numberList.textContent += i + ' ';
 }
 
 /* STEP 4: WHILE and DO/WHILE loops */
 
+//declared and initialized
 let j = 0;
 let outputWhile = '';
 /* STEP 4a: WHILE loop to iterate through the cities array (created above in STEP 2) */
-
+while (j < cities.length){
+  outputWhile += cities[j];
+  //to prevent the infinite loop
+  //increment til it is greater than the cities length
+  j++;
+}
 console.log(outputWhile);
 
 let k = 0;
+let kj = cities.length - 1;
 var outputDo = '';
 /* STEP 4b: DO/WHILE loop - grab the above IF/ELSE and the 'i++', then create the very same output with DO/WHILE (uncomment the above 'i = 0', first) */
-
+//does something and then checks
+do{
+  outputDo += cities[k];
+  k++;
+}while(k < cities.length);
+console.log();
+do{
+  outputDo += cities[k];
+  k--;
+}while(k >= 0);
 console.log(outputDo);
 /* …now try to loop through the same array backwards! */
 
