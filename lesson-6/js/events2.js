@@ -1,15 +1,24 @@
 // Declare and initialize variables
-const elem = document.querySelector('p');
+
+// we want to grab the first p tag
+//const elem = document.querySelector("p:first-of-type");
+//what if we want to target h1?
+const elem = document.querySelector("h1");
+//make sure it works and got it
+console.log(elem);
 
 // Functions
 function random(number) {
     return Math.floor(Math.random()*(number + 1));
 }
 /* STEP 1a: Event Objects
-Modify the below function to allow it to accept the event as a parameter or argument (named "event" in this case), then change the background color of the event.target instead of the document body */
-function bgChange() {
+Modify the below function to allow it to accept the event as a parameter or argument
+(named "event" in this case), then change the background color of the event.target 
+instead of the document body */
+function bgChange(event) {
     var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
-    document.body.style.backgroundColor = rndCol;
+    //document.body.style.backgroundColor = rndCol;
+    event.target.style.backgroundColor = rndCol;
 }
 // The target property of the event is a reference to the element that the event was acted upon
 
@@ -28,6 +37,15 @@ const para = document.querySelector('#formErrors');
 
 /* STEP 2b: Create a script to capture the onsubmit event using preventDefault() */
 
+form.addEventListener('submit', function(event) {
+  //console.log(event);
+  if(email.value === ""){
+    //email field is empty so don't let the form submit
+    event.preventDefault();
+    para.textContent = 'You need to fill in the email address!';
+    para.style.color = 'red';
+  }
+});
 // Next, open up gallery.html...
 
 // This page inspired by and adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events
