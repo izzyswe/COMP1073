@@ -48,6 +48,9 @@ class Coffee{
     };
     //because cupsize has a switch statement
     cup.setAttribute("height", cupSize);
+    // Set the title of the IMG element to be a description
+    let description = `A ${this.size} ${decaf} coffee`;
+    cup.setAttribute("title", description);
     // Insert IMG of coffee cup into page
     output.appendChild(cup);
   }
@@ -65,12 +68,30 @@ let stervsCoffee = new Coffee("large", false);
   // you can do isaacsCoffee["size"] it will show small
 
 /* STEP 5: Define a subclass of the Coffee class */
-
+//we are inheriting class from the coffee class
+class Latte extends Coffee {
+  //class properties
+  milkType;
+  //Class constructor
+  // we still need size and decaf but we also can add milkType
+  constructor(size, isDecaf, milkType){
+    super(size, isDecaf) //refers to the constructor from where its derived from (Coffee)
+    this.milkType = milkType;
+  };
+  // Class Methods
+  latteDesc(){
+    alert(`A ${this.size} ${this.isDecaf ? "decaffeinated" : "caffeinated"} latte with steamed ${this.milkType} milk.`);
+  }
+}
 /* STEP 6: Create a new instance of the Latte object */
+let isaacsLatte = new Latte("medium", false, "almond");
 
 /* STEP 7: Call up the latteDesc() method for the above created Latte instance */
 
 /* STEP 8: Create yet another instance of Latte using the console, and try the latteDesc() method from the subclass, as well as the serveIt() method from the parent class */
+// in the console I can do => sarahsLatte = new Latte("extralarge", true, "oat")
+// and then do sarahsLatte.serveIt()
+// sarahsLatte.latteDesc() => alert => extra large decaffeinated oat milk
 
 // This page inspired by and adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript
 
