@@ -1,5 +1,5 @@
 // STEP 1: Grab the HTML elements we need for the interaction
-const verseChoose = document.querySelector("#verseChoose");
+const verseChoose = document.querySelector("#verse-choose");
 const poemDisplay = document.querySelector("pre");
 
 // STEP 2: Build out the event handler for the SELECT element
